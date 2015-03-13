@@ -30,7 +30,7 @@ namespace SpaceWitch
 		static Vector &invert(const Vector &v1, Vector &result);
 		static Vector &multiply(const Vector &v1, const double &scale, Vector &result);
 
-		Vector operator-() const { return invert(*this, Vector()); }
+		Vector operator-() const { return Vector(-x,-y,-z); }
 		Vector &operator+=(const Vector &v) { return add(*this, v, *this); }
 		Vector &operator-=(const Vector &v) { return subtract(*this, v, *this); }
 		Vector &operator*=(const Vector &v) { Vector tv(*this); return cross(tv, v, *this); }
