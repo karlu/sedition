@@ -1,2 +1,2 @@
 # sedition
-# Requires SDL2
+Requires SDL2
