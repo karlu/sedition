@@ -9,7 +9,7 @@ namespace SpaceWitch
 		vib = bias = 0;
 	}
 
-	double Camera::bias()
+	double Camera::applyBias()
 	{
 		if(upBias)
 		{

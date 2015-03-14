@@ -13,9 +13,9 @@ namespace SpaceWitch
 		Actor* actor;
 
 	public:
-		double vib, bias;
+		double vib, bias, camDist;
 		Camera(Actor* a);
-		double bias();
+		double applyBias();
 		void move(double time);
 	};
 }
