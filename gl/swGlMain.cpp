@@ -1,5 +1,3 @@
-//#include "swCommonMath.h"
-//#include "swVector.h"
 #include "swGlMain.h"
 
 #include <SDL.h>
@@ -105,15 +103,6 @@ namespace SpaceWitch
 			success = false;
 		}
 
-		/*
-		if (!LoadGLTextures())
-			return 0;
-
-		sector[0] = SetupModel("Data/sector.txt", sector[0]);
-		sector[0].list = BuildList(sector[0], sector[0].list);
-		p[i].model = SetupModel("Data/Shipklö.txt", p[i].model);
-		*/
-
 		return success;
 	}
 
@@ -206,116 +195,4 @@ namespace SpaceWitch
 
 		return TRUE;
 	}
-
-
-
-	/*
-	GLuint BuildList(TMolecule sector, GLuint list)
-	{
-	list = glGenLists(1);
-	int i, j;
-	GLfloat x_m, y_m, z_m, u_m, v_m;
-	glNewList(list, GL_COMPILE);
-	for (i = 0; i < sector.numtriangles; i++)
-	{
-	glBindTexture(GL_TEXTURE_2D, tx[sector.triangle[i].t * 3].image[filter]);
-	//glBindTexture(GL_TEXTURE_2D, texture[filter+sector.triangle[i].t*3]);
-	glBegin(GL_TRIANGLES);
-	glNormal3f(0.0f, 0.0f, 1.0f);
-	for (j = 0; j<3; j++)
-	{
-
-	x_m = sector.triangle[i].vertex[j].x;
-	y_m = sector.triangle[i].vertex[j].y;
-	z_m = sector.triangle[i].vertex[j].z;
-	//	x_m = (float)x1*cos(yrot)-z1*sin(yrot)+shipx;
-	//	y_m = y1+shipy;
-	//	z_m = (float)-x1*sin(yrot)-z1*cos(yrot)+shipz;
-	u_m = sector.triangle[i].vertex[j].u;
-	v_m = sector.triangle[i].vertex[j].v;
-	glTexCoord2f(u_m, v_m); glVertex3f(x_m, y_m, z_m);
-	}
-	glEnd();
-	}
-	glEndList();
-
-	return list;
-	}
-	*/
-
-	/*
-	void drawGLScene(GLvoid)
-	{
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);	// Clear The Screen And The Depth Buffer
-	glLoadIdentity();									// Reset The View
-
-	glLightfv(GL_LIGHT1, GL_POSITION, lPos);	// Position The Light
-
-	glLoadIdentity();									// Reset The View
-	glColor3f(1.0f, 1.0f, 1.0f);
-
-	gluLookAt(
-	p[0].x + (p[0].bias + .5)*p[0].top.X() + 1.2*p[0].dir.X() - p[0].dir.X()*p[0].camDist * 2,
-	p[0].y + (p[0].bias + .5)*p[0].top.Y() + 1.2*p[0].dir.Y() - p[0].dir.Y()*p[0].camDist * 2,
-	p[0].z + (p[0].bias + .5)*p[0].top.Z() + 1.2*p[0].dir.Z() - p[0].dir.Z()*p[0].camDist * 2,
-
-	p[0].x + 10 * p[0].dir.X(),
-	p[0].y + 10 * p[0].dir.Y(),
-	p[0].z + 10 * p[0].dir.Z(),
-
-	p[0].top.X(),
-	p[0].top.Y(),
-	p[0].top.Z());
-
-	glCallList(sector[0].list);
-
-	Matrix temp1, temp2 = Matrix();
-	temp1 = p[0].bas;
-	temp2.Rot(0, 0, p[0].vib);
-
-	temp1 *= temp2;
-
-
-
-	int i, j;
-
-	//glRotatef(p[0].vib,p[0].dir.X(),p[0].dir.Y(),p[0].dir.Z());
-	for (i = 0; i < p[0].model.numtriangles; i++)
-	{
-	//glBindTexture(GL_TEXTURE_2D, tx[p[0].model.triangle[i].t].image[filter]);
-	glBegin(GL_TRIANGLES);
-	glNormal3f(0.0f, 0.0f, 1.0f);
-	for (j = 0; j<3; j++)
-	{
-
-	float x1 = p[0].model.triangle[i].vertex[j].x;
-	float y1 = -p[0].model.triangle[i].vertex[j].y;
-	float z1 = -p[0].model.triangle[i].vertex[j].z;
-	float x_m = p[0].x + (x1*p[0].side.X() + y1*p[0].top.X() + z1*p[0].dir.X());
-	float y_m = p[0].y + (x1*p[0].side.Y() + y1*p[0].top.Y() + z1*p[0].dir.Y());
-	float z_m = p[0].z + (x1*p[0].side.Z() + y1*p[0].top.Z() + z1*p[0].dir.Z());
-	//float x_m = p[0].x + ( x1*temp1(0,0) + y1*temp1(1,0) + z1*temp1(2,0) );
-	//float y_m = p[0].y + ( x1*temp1(0,1) + y1*temp1(1,1) + z1*temp1(2,1) );
-	//float z_m = p[0].z + ( x1*temp1(0,2) + y1*temp1(1,2) + z1*temp1(2,2) );
-	float u_m = p[0].model.triangle[i].vertex[j].u;
-	float v_m = p[0].model.triangle[i].vertex[j].v;
-	glTexCoord2f(u_m, v_m); glVertex3f(x_m, y_m, z_m);
-	}
-	glEnd();
-	}
-
-
-
-	if (p[0].vib>0)
-	p[0].vib -= 0.001f;
-	if (p[0].vib<0)
-	p[0].vib += 0.001f;
-	glColor3f(1.0f, 0.0f, 0.0f);
-
-	glRasterPos2f(0, 0);
-	}
-	*/
-
-
-	
 }
