@@ -1,13 +1,24 @@
 CC=g++
-CFLAGS=
+CFLAGS=-std=c++11 -I. -I./math
 
-MATH_DEPS=math/swVector.h math/swCommonMath.h
+MATH_DEPS=math/swMatrix.h math/swVector.h math/swCommonMath.h
 
-.PHONY: all
-all: build/swVector.o build/swMatrix.o
+.PHONY: all all_gl all_math build_dirs clean
+all: build_dirs all_math all_gl
 
-build/swMatrix.o: math/swMatrix.cpp math/swMatrix.h math/swVector.h math/swCommonMath.h
-	g++ -c math/swMatrix.cpp
+all_gl: gl/swTriangle.o gl/swAtom.o gl/swActor.o gl/swCamera.o
 
-build/swVector.o: math/swVector.cpp math/swVector.h math/swCommonMath.h
-	g++ -c math/swVector.cpp
+gl/%.o: gl/%.cpp
+	$(CC) -c $< $(CFLAGS) -o build/$@
+
+all_math: math/swVector.o math/swMatrix.o
+
+math/%.o: math/%.cpp
+	$(CC) -c $< $(CFLAGS) -o build/$@
+
+build_dirs:
+	mkdir -p build/math >> /dev/null 2>&1 || true
+	mkdir -p build/gl >> /dev/null 2>&1 || true
+
+clean:
+	rm -rf build/
