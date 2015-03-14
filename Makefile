@@ -1,10 +1,13 @@
 CC=g++
-CFLAGS="-std=c++11 -Wall -I./math/"
+CFLAGS=
 
-MATH_DEPS="math/swVector.h math/swCommonMath.h"
+MATH_DEPS=math/swVector.h math/swCommonMath.h
 
-build/swMatrix.o: math/swMatrix.c math/swMatrix.h build/swVector.o $(MATH_DEPS)
-  $(CC) $(CFLAGS) -c $@
+.PHONY: all
+all: build/swVector.o build/swMatrix.o
 
-build/swVector.o: math/swVector.c $(MATH_DEPS)
-  $(CC) $(CFLAGS) -c $@
+build/swMatrix.o: math/swMatrix.cpp math/swMatrix.h math/swVector.h math/swCommonMath.h
+	g++ -c math/swMatrix.cpp
+
+build/swVector.o: math/swVector.cpp math/swVector.h math/swCommonMath.h
+	g++ -c math/swVector.cpp
