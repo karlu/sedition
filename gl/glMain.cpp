@@ -54,12 +54,9 @@ namespace SpaceWitch
 	
 	SWEnv::~SWEnv()
 	{
-
-		//Destroy window	
 		SDL_DestroyWindow(gWindow);
 		gWindow = NULL;
 
-		//Quit SDL subsystems
 		SDL_Quit();
 	}
 
@@ -129,23 +126,28 @@ namespace SpaceWitch
 		//No per frame update needed
 	}
 	
-	void SWEnv::drawMolecule(Molecule &S)
+	void drawTriangle(Triangle &T)
 	{
-		for (int i = 0; i < S.nTriangles(); i++)
-		{
-			glBegin(GL_TRIANGLES);
-			glColor3f(i*0.2f, 0.0f, 0.0f);
-			glNormal3f(0.0f, 0.0f, 1.0f);
-			Triangle* t = S.getTriangle(i);
-			for (int j = 0; j<3; j++)
-				glVertex3f(t->v[j].x, t->v[j].y, t->v[j].z);
-			glEnd();
-		}
+		glBegin(GL_TRIANGLES);
+		glColor3f(0.2f, 0.0f, 0.0f);
+		glNormal3f(0.0f, 0.0f, 1.0f);
+		for (int j = 0; j<3; j++)
+			glVertex3f(T.v[j].x, T.v[j].y, T.v[j].z);
+		glEnd();
 	}
 
-
-
-
+	void SWEnv::drawMolecule(Molecule &S)
+	{
+		for (int i = 0; i < S.nAtoms(); i++)
+		{
+			Atom* tmp = S.getAtom(i);
+			for (int j = 0; j < tmp->nTriangles(); j++)
+			{
+				Triangle *tri = tmp->getTriangle(j);
+				drawTriangle(*tri);
+			}
+		}
+	}
 
 	int SWEnv::drawGLScene(Actor &P, Molecule &S, int nMolecules)
 	{
@@ -175,24 +177,10 @@ namespace SpaceWitch
 			pTop.x, pTop.y, pTop.z);
 
 		drawMolecule(S);
-
-		for (int i = 0; i < P.model.nTriangles(); i++)
-		{
-			glBegin(GL_TRIANGLES);
-			glColor3f(i*0.2f, 1.0f, 0.0f);
-			glNormal3f(0.0f, 0.0f, 1.0f);
-			for (int j = 0; j<3; j++)
-			{
-				Vector* v = &(P.model.getTriangle(i)->v[j]);
-				Vector rv;
-				P.rotVector(rv, *v);
-				glVertex3f(rv.x, rv.y, rv.z);
-			}
-			glEnd();
-		}
+		drawMolecule(P.model);
 
 		glRasterPos2f(0, 0);
 
-		return TRUE;
+		return true;
 	}
 }

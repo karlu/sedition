@@ -46,18 +46,10 @@ namespace SpaceWitch
 
 	int createVertex(Vector &v, vector<string> &tokens)
 	{
-		try
-		{
-			int d1 = stod(tokens.at(0));
-			int d2 = stod(tokens.at(1));
-			int d3 = stod(tokens.at(2));
-			v = Vector(d1, d2, d3);
-		}
-		catch (const invalid_argument &ia)
-		{
-			//cerr << "Expected double, didnt get such\n";
-			return -1;
-		}
+		int d1 = stod(tokens.at(0));
+		int d2 = stod(tokens.at(1));
+		int d3 = stod(tokens.at(2));
+		v = Vector(d1, d2, d3);
 
 		return 1;
 	}
