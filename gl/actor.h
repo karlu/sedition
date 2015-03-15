@@ -2,7 +2,7 @@
 #define ACTOR_H
 
 #include "matrix.h"
-#include "atom.h"
+#include "molecule.h"
 
 namespace SpaceWitch
 {
@@ -17,7 +17,7 @@ namespace SpaceWitch
 	{
 	public:
 		ActorCommands commands;
-		Atom model;
+		Molecule model;
 		Actor();
 		void move(double time);
 		

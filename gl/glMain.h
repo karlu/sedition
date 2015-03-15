@@ -1,10 +1,9 @@
 #ifndef GLMAIN_H
 #define GLMAIN_H
 
-#include "molecule.h"
 #include "actor.h"
 
-#include <SDL.h>
+#include <SDL2/SDL.h>
 
 namespace SpaceWitch
 {

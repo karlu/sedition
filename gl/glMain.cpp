@@ -1,8 +1,8 @@
 #include "glMain.h"
 
-#include <SDL.h>
-#include <SDL_opengl.h>
-#include <GL\GLU.h>
+#include <SDL2/SDL.h>
+#include <SDL2/SDL_opengl.h>
+#include <GL/glu.h>
 #include <stdio.h>
 #include <string>
 
