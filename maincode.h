@@ -1,9 +1,9 @@
 #ifndef MAINCODE_H
 #define MAINCODE_H
 
-#include "swMolecule.h"
-#include "swActor.h"
-#include "swGlMain.h"
+#include "molecule.h"
+#include "actor.h"
+#include "glMain.h"
 
 using namespace SpaceWitch;
 
