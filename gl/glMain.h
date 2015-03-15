@@ -1,8 +1,8 @@
-#ifndef SWGLMAIN_H
-#define SWGLMAIN_H
+#ifndef GLMAIN_H
+#define GLMAIN_H
 
-#include "swMolecule.h"
-#include "swActor.h"
+#include "molecule.h"
+#include "actor.h"
 
 #include <SDL.h>
 

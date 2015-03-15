@@ -1,5 +1,5 @@
-#ifndef SWTRIANGLE_H
-#define SWTRIANGLE_H
+#ifndef TRIANGLE_H
+#define TRIANGLE_H
 
 #include "vector.h"
 

@@ -1,7 +1,7 @@
-#ifndef SWCAMERA_H
-#define SWCAMERA_H
+#ifndef CAMERA_H
+#define CAMERA_H
 
-#include "swActor.h"
+#include "actor.h"
 
 namespace SpaceWitch
 {

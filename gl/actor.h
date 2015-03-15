@@ -1,5 +1,5 @@
-#ifndef SWACTOR_H
-#define SWACTOR_H
+#ifndef ACTOR_H
+#define ACTOR_H
 
 #include "matrix.h"
 #include "atom.h"

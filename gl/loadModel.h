@@ -1,7 +1,7 @@
-#ifndef SWLOADMODEL_H
-#define SWLOADMODEL_H
+#ifndef LOADMODEL_H
+#define LOADMODEL_H
 
-#include "swAtom.h"
+#include "atom.h"
 
 #include <string>
 #include <stdio.h>

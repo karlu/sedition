@@ -1,5 +1,5 @@
-#ifndef SWVECTOR_H
-#define SWVECTOR_H
+#ifndef VECTOR_H
+#define VECTOR_H
 
 namespace SpaceWitch
 {

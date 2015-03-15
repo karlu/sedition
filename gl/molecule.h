@@ -1,7 +1,7 @@
-#ifndef SWMOLECULE_H
-#define SWMOLECULE_H
+#ifndef MOLECULE_H
+#define MOLECULE_H
 
-#include "swAtom.h"
+#include "atom.h"
 
 #include <vector>
 

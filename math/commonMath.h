@@ -1,5 +1,5 @@
-#ifndef SWCOMMONMATH_H
-#define SWCOMMONMATH_H
+#ifndef COMMONMATH_H
+#define COMMONMATH_H
 
 #include <math.h>
 

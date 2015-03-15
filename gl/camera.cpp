@@ -1,4 +1,4 @@
-#include "swCamera.h"
+#include "camera.h"
 
 namespace SpaceWitch
 {

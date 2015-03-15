@@ -1,4 +1,4 @@
-#include "swMolecule.h"
+#include "molecule.h"
 
 namespace SpaceWitch
 {

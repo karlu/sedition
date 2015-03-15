@@ -1,4 +1,4 @@
-#include "swGlMain.h"
+#include "glMain.h"
 
 #include <SDL.h>
 #include <SDL_opengl.h>

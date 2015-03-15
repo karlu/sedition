@@ -1,5 +1,5 @@
-#ifndef SWATOM_H
-#define SWATOM_H
+#ifndef ATOM_H
+#define ATOM_H
 
 #include "triangle.h"
 

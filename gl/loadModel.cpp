@@ -1,9 +1,6 @@
-#include "swLoadModel.h"
+#include "loadModel.h"
 
 #include <fstream>
-
-//#define _CRT_SECURE_NO_DEPRECATE
-//#define _CRT_SECURE_NO_WARNINGS
 
 using namespace std;
 
@@ -101,62 +98,4 @@ namespace SpaceWitch
 		vector<Vector> vectorList;
 		readFromFile(vectorList);
 	}
-
-	/*
-	Atom SetupModel(char *adrs, Atom sector)
-	{
-		float x, y, z, u, v;
-		int t;
-		int numtriangles;
-		FILE *filein;
-		char oneline[255];
-
-		/*
-		 * WINDOWS SPECIAL LANGUAGE ALERT!
-		 * fopen_s is not GNU
-		 * USE fopen INSTEAD
-		 * Should be
-		 * filein = fopen(adrs, "rt");
-		 * /
-
-		// Is
-		fopen_s(&filein, adrs, "rt");
-
-		// Normal code
-		readstr(filein, oneline);
-
-		// Is
-		sscanf_s("%255s", oneline, "NUMPOLLIES %d\n", &numtriangles);
-
-		/*
-		 * Should be
-		 * sscanf(oneline, "NUMPOLLIES %d\n", &numtriangles);
-		 * END OF
-		 * WINDOWS SPECIAL LANGUAGE ALERT!
-		 * /
-
-		
-
-		for (int loop = 0; loop < numtriangles; loop++)
-		{
-			readstr(filein, oneline);
-			sscanf(oneline, "%d", &t);
-			
-			Vector tmpVec[3];
-
-			for (int vert = 0; vert < 3; vert++)
-			{
-				readstr(filein, oneline);
-				sscanf(oneline, "%f %f %f %f %f", &x, &y, &z, &u, &v);
-				tmpVec[vert] = Vector(x, y, z);
-			}
-
-			Triangle* tmpTri = new Triangle(tmpVec[0], tmpVec[1], tmpVec[2]);
-			sector.addTriangle(tmpTri);
-		}
-		fclose(filein);
-		return sector;
-	}
-	*/
-
 }

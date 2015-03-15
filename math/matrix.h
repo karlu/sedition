@@ -1,5 +1,5 @@
-#ifndef SWMATRIX_H
-#define SWMATRIX_H
+#ifndef MATRIX_H
+#define MATRIX_H
 
 #include "vector.h"
 
