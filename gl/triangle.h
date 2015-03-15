@@ -1,7 +1,7 @@
 #ifndef SWTRIANGLE_H
 #define SWTRIANGLE_H
 
-#include "swVector.h"
+#include "vector.h"
 
 namespace SpaceWitch
 {

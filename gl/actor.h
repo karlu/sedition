@@ -1,10 +1,8 @@
 #ifndef SWACTOR_H
 #define SWACTOR_H
 
-#include "swMatrix.h"
-#include "swAtom.h"
-
-
+#include "matrix.h"
+#include "atom.h"
 
 namespace SpaceWitch
 {

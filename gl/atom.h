@@ -1,7 +1,7 @@
 #ifndef SWATOM_H
 #define SWATOM_H
 
-#include "swTriangle.h"
+#include "triangle.h"
 
 #include <vector>
 

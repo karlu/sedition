@@ -4,7 +4,7 @@ CFLAGS=-std=c++11 -I. -I./math
 .PHONY: all all_gl all_math build_dirs clean
 all: build_dirs all_math all_gl
 
-all_gl: gl/swTriangle.o gl/swAtom.o gl/swActor.o gl/swCamera.o
+all_gl: gl/triangle.o gl/atom.o gl/actor.o gl/camera.o
 
 gl/%.o: gl/%.cpp
 	$(CC) -c $< $(CFLAGS) -o build/$@

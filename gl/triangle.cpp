@@ -1,4 +1,4 @@
-#include "swTriangle.h"
+#include "triangle.h"
 
 namespace SpaceWitch
 {

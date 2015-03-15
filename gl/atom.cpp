@@ -1,4 +1,4 @@
-#include "swAtom.h"
+#include "atom.h"
 
 namespace SpaceWitch
 {
