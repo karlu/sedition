@@ -1,5 +1,5 @@
-#include "swCommonMath.h"
-#include "swMatrix.h"
+#include "commonMath.h"
+#include "matrix.h"
 
 namespace SpaceWitch
 {

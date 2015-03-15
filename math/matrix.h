@@ -1,7 +1,7 @@
 #ifndef SWMATRIX_H
 #define SWMATRIX_H
 
-#include "swVector.h"
+#include "vector.h"
 
 namespace SpaceWitch
 {
