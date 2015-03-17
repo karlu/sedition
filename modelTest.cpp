@@ -1,6 +1,6 @@
-#include "swmath.h"
+#include "swmodel.h"
 
-#include "iostream"
+#include <iostream>
 
 using namespace std;
 using namespace SpaceWitch;

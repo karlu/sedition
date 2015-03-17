@@ -1,7 +1,7 @@
 CC=g++
 SDL_LIB=-L/usr/local/lib
 GL_INCLUDE=-I/usr/include/SDL2 -I/usr/include/GL
-CFLAGS=-std=c++11 -I. -I./math -I./include -I./model
+CFLAGS=-std=c++11 -I. -I./math -I./model -I./include
 CFLAGS_GL=$(CFLAGS) $(SDL_INCLUDE)
 
 LDFLAGS=$(SDL_LIB)
@@ -10,11 +10,16 @@ SED_MODEL_LIBS=model/triangle.o model/atom.o model/molecule.o model/actor.o
 SED_GL_LIBS=gl/camera.o gl/glMain.o gl/loadModel.o
 SED_MATH_LIBS=math/vector.o math/matrix.o
 
-.PHONY: math_test
+.PHONY: math_test model_test
 
-math_test: build_dirs all_math
-	cp math/test.cpp build/test.cpp
-	cd build && $(CC) test.cpp $(SED_MATH_LIBS) $(CFLAGS) -o bin/$@
+model_test: modelTest.cpp build_dirs all_model all_math
+	cp $< build/$<
+	cd build && $(CC) $< $(SED_MATH_LIBS) $(CFLAGS) -o bin/$@
+	./build/bin/$@
+
+math_test: mathTest.cpp build_dirs all_math
+	cp $< build/$<
+	cd build && $(CC) $< $(SED_MATH_LIBS) $(CFLAGS) -o bin/$@
 	./build/bin/$@
 
 .PHONY: all_math all_model all_gl all build_dirs clean
