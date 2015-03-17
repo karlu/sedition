@@ -11,10 +11,11 @@ SED_GL_LIBS=gl/camera.o gl/glMain.o gl/loadModel.o
 SED_MATH_LIBS=math/vector.o math/matrix.o
 
 .PHONY: math_test model_test
+.PHONY: all_math all_model all_gl all build_dirs clean
 
 model_test: modelTest.cpp build_dirs all_model all_math
 	cp $< build/$<
-	cd build && $(CC) $< $(SED_MATH_LIBS) $(CFLAGS) -o bin/$@
+	cd build && $(CC) $< $(SED_MATH_LIBS) $(SED_MODEL_LIBS) $(CFLAGS) -o bin/$@
 	./build/bin/$@
 
 math_test: mathTest.cpp build_dirs all_math
@@ -22,8 +23,6 @@ math_test: mathTest.cpp build_dirs all_math
 	cd build && $(CC) $< $(SED_MATH_LIBS) $(CFLAGS) -o bin/$@
 	./build/bin/$@
 
-.PHONY: all_math all_model all_gl all build_dirs clean
-#all: build_dirs all_math all_model all_gl sedition
 all: build_dirs all_math all_model all_gl
 
 sedition: maincode.cpp $(SED_GL_LIBS) $(SED_MATH_LIBS) $(SED_MODEL_LIBS)
@@ -39,7 +38,7 @@ gl/%.o: gl/%.cpp gl/%.h
 all_model: $(SED_MODEL_LIBS)
 
 model/%.o: model/%.cpp model/%.h
-	$(CC) -c $< $(CFLAGS_GL) -o build/$@
+	$(CC) -c $< $(CFLAGS) -o build/$@
 
 all_math: $(SED_MATH_LIBS)
 
@@ -53,6 +52,7 @@ build_dirs:
 	mkdir -p build/bin >> /dev/null 2>&1 || true
 	mkdir -p build/include >> /dev/null 2>&1 || true
 	cp math/*.h build/include/
+	cp model/*.h build/include/
 	cp gl/*.h build/include/
 
 clean:

@@ -11,6 +11,7 @@ int main()
 	Vector v2(2,1,0);
 
 	Vector v3 = v1+v2;
+	Triangle t(v1,v2,v3);
 	if(v3.x != 3 || v3.y != 1 || v3.z != 1)
 	{
 		cout << "Vector addition error\n";
