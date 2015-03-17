@@ -14,7 +14,8 @@ SED_MATH_LIBS=math/vector.o math/matrix.o
 
 math_test: build_dirs all_math
 	cp math/test.cpp build/test.cpp
-	cd build && $(CC) test.cpp $(SED_MATH_LIBS) $(CFLAGS)
+	cd build && $(CC) test.cpp $(SED_MATH_LIBS) $(CFLAGS) -o bin/$@
+	./build/bin/$@
 
 .PHONY: all_math all_model all_gl all build_dirs clean
 #all: build_dirs all_math all_model all_gl sedition
