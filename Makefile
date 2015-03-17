@@ -10,6 +10,12 @@ SED_MODEL_LIBS=model/triangle.o model/atom.o model/molecule.o model/actor.o
 SED_GL_LIBS=gl/camera.o gl/glMain.o gl/loadModel.o
 SED_MATH_LIBS=math/vector.o math/matrix.o
 
+.PHONY: math_test
+
+math_test: build_dirs all_math
+	cp math/test.cpp build/test.cpp
+	cd build && $(CC) test.cpp $(SED_MATH_LIBS) $(CFLAGS)
+
 .PHONY: all_math all_model all_gl all build_dirs clean
 #all: build_dirs all_math all_model all_gl sedition
 all: build_dirs all_math all_model all_gl
