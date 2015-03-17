@@ -18,7 +18,7 @@ int main()
 		return -1;
 	}
 
-	cout << "Math test passed!\n";
+	cout << "Model test passed!\n";
 
 	return 0;
 }
