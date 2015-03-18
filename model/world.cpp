@@ -12,11 +12,13 @@ namespace SpaceWitch
 		actor.push_back(t);
 	}
 
-	void World::eval()
+	void World::eval(double currentTime)
 	{
-		double currentTime=0; // get current time
+		double timeDiff = currentTime-lastUpdated;
+		if(timeDiff < 0)
+			timeDiff = 40.0;
 		for(int i=0; i<actor.size(); ++i)
-			actor.move(1); // currentTime-lastUpdated
+			actor.at(i)->move(timeDiff);
 		lastUpdated=currentTime;
 	}
 }

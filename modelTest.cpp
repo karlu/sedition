@@ -18,6 +18,8 @@ int main()
 		return -1;
 	}
 
+	World W(0);
+	W.eval(40);
 	cout << "Model test passed!\n";
 
 	return 0;

@@ -14,7 +14,7 @@ namespace SpaceWitch
 		void addActor(Actor* t);
 		Actor* getActor(int i) const { return (actor.at(i)); };
 		int nActors() const { return actor.size(); }
-		void eval();
+		void eval(double);
 
 	private:
 		double lastUpdated;

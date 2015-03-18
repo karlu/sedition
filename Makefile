@@ -6,8 +6,8 @@ CFLAGS_GL=$(CFLAGS) $(SDL_INCLUDE)
 
 LDFLAGS=$(SDL_LIB)
 
-SED_MODEL_LIBS=model/triangle.o model/atom.o model/molecule.o model/actor.o
-SED_GL_LIBS=gl/camera.o gl/glMain.o gl/loadModel.o
+SED_MODEL_LIBS=model/triangle.o model/atom.o model/molecule.o model/actor.o model/world.o
+SED_GL_LIBS=gl/camera.o gl/swEnv.o gl/loadModel.o
 SED_MATH_LIBS=math/vector.o math/matrix.o
 
 .PHONY: math_test model_test
@@ -23,7 +23,7 @@ math_test: mathTest.cpp build_dirs all_math
 	cd build && $(CC) $< $(SED_MATH_LIBS) $(CFLAGS) -o bin/$@
 	./build/bin/$@
 
-all: build_dirs all_math all_model all_gl
+all: build_dirs all_math all_model all_gl sedition
 
 sedition: maincode.cpp $(SED_GL_LIBS) $(SED_MATH_LIBS) $(SED_MODEL_LIBS)
 	cp maincode.cpp build/maincode.cpp
