@@ -1,7 +1,8 @@
-#ifndef GLMAIN_H
-#define GLMAIN_H
+#ifndef SWENV_H
+#define SWENV_H
 
-#include "actor.h"
+#include "glMain.h"
+#include "model.h"
 
 #include <SDL2/SDL.h>
 
@@ -12,30 +13,20 @@ namespace SpaceWitch
 	public:
 		SWEnv();
 		~SWEnv();
-		void update();
-		void render();
+		int initialize()
 		bool isInitialized() const { return initialized; }
-		int drawGLScene(Actor &P, Molecule &S, int nMolecules);
+		int drawGLScene(World*);
 
 	private:
-		bool initGL();
 		void drawMolecule(Molecule &S);
 		
-
 		// Graphics
-		bool gRenderQuad = true;
 		SDL_Window* gWindow = NULL;
 		SDL_GLContext gContext;
 
 		// Misc
 		bool initialized = false;
-		
-		// Experiment
-		//void drawGLScene();
 	};
-	
-	const int SCREEN_WIDTH = 640;
-	const int SCREEN_HEIGHT = 480;
 }
 
 #endif
