@@ -1,16 +1,18 @@
-#include "glMain.h"
-
-#include <SDL2/SDL.h>
-#include <SDL2/SDL_opengl.h>
-#include <GL/glu.h>
-#include <stdio.h>
-#include <string>
+#include "swEnv.h"
 
 namespace SpaceWitch
 {
 	SWEnv::SWEnv()
 	{
 		initialize();
+	}
+
+	SWEnv::~SWEnv()
+	{
+		SDL_DestroyWindow(gWindow);
+		gWindow = NULL;
+
+		SDL_Quit();
 	}
 
 	int SWEnv::initialize()
@@ -22,18 +24,20 @@ namespace SpaceWitch
 		}
 
 		if(createSdlWindow(&gWindow) < 0) return -1;
-		if(createSdlContext(&gContext) < 0) return -1;
+		if(createSdlContext(&gContext, gWindow) < 0) return -1;
 		if(initGL() < 0) return -1;
 
 		return 1;		
 	}
 	
-	SWEnv::~SWEnv()
-	{
-		SDL_DestroyWindow(gWindow);
-		gWindow = NULL;
 
-		SDL_Quit();
+	int SWEnv::drawGLScene(World* W)
+	{
+		startDrawing();
+
+		glColor3f(1.0f, 1.0f, 1.0f);
+
+		publishDrawing(gWindow);
 	}
 
 	void SWEnv::drawMolecule(Molecule &S)
@@ -47,16 +51,5 @@ namespace SpaceWitch
 				drawTriangle(*tri);
 			}
 		}
-	}
-
-	int SWEnv::drawGLScene(World* W)
-	{
-		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-		glLoadIdentity();
-
-		glColor3f(1.0f, 1.0f, 1.0f);
-
-		SDL_GL_SwapWindow(gWindow);
-		return true;
 	}
 }

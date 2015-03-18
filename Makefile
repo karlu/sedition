@@ -1,5 +1,6 @@
 CC=g++
-SDL_LIB=-L/usr/local/lib
+#SDL_LIB=-L/usr/local/lib
+SDL_LIB = -L/usr/local/lib -lSDL2 -lGL -lGLU -Wl,-rpath=/usr/local/lib
 GL_INCLUDE=-I/usr/include/SDL2 -I/usr/include/GL
 CFLAGS=-std=c++11 -I. -I./math -I./model -I./include
 CFLAGS_GL=$(CFLAGS) $(SDL_INCLUDE)
@@ -7,11 +8,13 @@ CFLAGS_GL=$(CFLAGS) $(SDL_INCLUDE)
 LDFLAGS=$(SDL_LIB)
 
 SED_MODEL_LIBS=model/triangle.o model/atom.o model/molecule.o model/actor.o model/world.o
-SED_GL_LIBS=gl/camera.o gl/swEnv.o gl/loadModel.o
+SED_GL_LIBS=gl/camera.o gl/glMain.o gl/swEnv.o gl/loadModel.o
 SED_MATH_LIBS=math/vector.o math/matrix.o
 
 .PHONY: math_test model_test
 .PHONY: all_math all_model all_gl all build_dirs clean
+
+all: build_dirs all_math all_model all_gl sedition
 
 model_test: modelTest.cpp build_dirs all_model all_math
 	cp $< build/$<
@@ -22,8 +25,6 @@ math_test: mathTest.cpp build_dirs all_math
 	cp $< build/$<
 	cd build && $(CC) $< $(SED_MATH_LIBS) $(CFLAGS) -o bin/$@
 	./build/bin/$@
-
-all: build_dirs all_math all_model all_gl sedition
 
 sedition: maincode.cpp $(SED_GL_LIBS) $(SED_MATH_LIBS) $(SED_MODEL_LIBS)
 	cp maincode.cpp build/maincode.cpp

@@ -2,7 +2,7 @@
 #define SWENV_H
 
 #include "glMain.h"
-#include "model.h"
+#include "swmodel.h"
 
 #include <SDL2/SDL.h>
 
@@ -13,7 +13,7 @@ namespace SpaceWitch
 	public:
 		SWEnv();
 		~SWEnv();
-		int initialize()
+		int initialize();
 		bool isInitialized() const { return initialized; }
 		int drawGLScene(World*);
 

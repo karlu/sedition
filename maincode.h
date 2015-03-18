@@ -1,9 +1,9 @@
 #ifndef MAINCODE_H
 #define MAINCODE_H
 
-#include "molecule.h"
-#include "actor.h"
-#include "glMain.h"
+#include "swmath.h"
+#include "swmodel.h"
+#include "swgl.h"
 
 using namespace SpaceWitch;
 
@@ -11,10 +11,10 @@ void calc();
 void progKey(SDL_Event &e);
 
 bool	done=false;
+double currentTime = 0;
 
-Molecule sector[1];
+Actor sector[1];
 Actor player[1];
-
-//LRESULT	CALLBACK WndProc(HWND, UINT, WPARAM, LPARAM);	// Declaration For WndProc
+World *world;
 
 #endif

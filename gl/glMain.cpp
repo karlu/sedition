@@ -1,5 +1,8 @@
 #include "glMain.h"
 
+#include <stdio.h>
+#include <string>
+
 namespace SpaceWitch
 {
 	int createSdlWindow(SDL_Window** gWindow)
@@ -18,9 +21,9 @@ namespace SpaceWitch
 		return 1;
 	}
 
-	int createSdlContext(SDL_GLContext* gContext)
+	int createSdlContext(SDL_GLContext* gContext, SDL_Window* gWindow)
 	{
-		gContext = SDL_GL_CreateContext(gWindow);
+		*gContext = SDL_GL_CreateContext(gWindow);
 		if (gContext == NULL)
 		{
 			printf("OpenGL context could not be created! SDL Error: %s\n", SDL_GetError());
@@ -44,6 +47,17 @@ namespace SpaceWitch
 
 		glClearColor(0.f, 0.f, 0.f, 1.f);
 		return 1;
+	}
+
+	void startDrawing()
+	{
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+		glLoadIdentity();
+	}
+
+	void publishDrawing(SDL_Window* gWindow)
+	{
+		SDL_GL_SwapWindow(gWindow);
 	}
 
 	void drawTriangle(Triangle &T)

@@ -8,11 +8,15 @@ using namespace SpaceWitch;
 int main(int argc, char* args[])
 {
 	SWEnv* swEnv = new SWEnv();
-	
+	currentTime = (double)SDL_GetTicks();
+	player[0] = Actor();
+	sector[0] = Actor();
+	world = new World(currentTime);
+	world->addActor(&(player[0]));
+	world->addActor(&(sector[0]));
+
 	if(swEnv->isInitialized())
 	{
-		player[0] = Actor();
-		sector[0] = Molecule();
 		SDL_Event e;
 		SDL_StartTextInput();
 
@@ -31,7 +35,9 @@ int main(int argc, char* args[])
 			}
 
 			//swEnv->render();
-			swEnv->drawGLScene(player[0], sector[0], 1);
+			currentTime = (double)SDL_GetTicks();
+			world->eval(currentTime);
+			swEnv->drawGLScene(world);
 			
 
 		}
