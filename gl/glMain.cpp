@@ -37,7 +37,7 @@ namespace SpaceWitch
 		if(SDL_GL_SetSwapInterval(1) < 0) //Use Vsync
 		{
 			printf("Warning: Unable to set VSync! SDL Error: %s\n", SDL_GetError());
-			return -1;
+			//return -1;
 		}
 		//TODO: Check what these does and have proper SDL Error checking
 		glMatrixMode(GL_PROJECTION);

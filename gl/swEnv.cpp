@@ -4,7 +4,8 @@ namespace SpaceWitch
 {
 	SWEnv::SWEnv()
 	{
-		initialize();
+		if(initialize())
+			initialized = true;
 	}
 
 	SWEnv::~SWEnv()
