@@ -14,6 +14,7 @@ int main(int argc, char* args[])
 	world = new World(currentTime);
 	world->addActor(&(player[0]));
 	world->addActor(&(sector[0]));
+	//SDL_Delay(1000);
 
 	if(swEnv->isInitialized())
 	{
@@ -22,6 +23,7 @@ int main(int argc, char* args[])
 
 		while (!done)
 		{
+			SDL_Delay(1000);
 			//Handle events on queue
 			while (SDL_PollEvent(&e) != 0)
 			{
