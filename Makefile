@@ -7,7 +7,8 @@ CFLAGS_GL=$(CFLAGS) $(SDL_INCLUDE)
 
 LDFLAGS=$(SDL_LIB)
 
-SED_MODEL_LIBS=model/triangle.o model/atom.o model/molecule.o model/actor.o model/world.o
+SED_MODEL_LIBS=model/triangle.o model/atom.o model/molecule.o model/actor.o \
+	model/world.o model/modelparser.o
 SED_GL_LIBS=gl/camera.o gl/glMain.o gl/swEnv.o gl/loadModel.o
 SED_MATH_LIBS=math/vector.o math/matrix.o
 

@@ -9,12 +9,24 @@ int main(int argc, char* args[])
 {
 	SWEnv* swEnv = new SWEnv();
 	currentTime = (double)SDL_GetTicks();
+
+	Molecule* m = new Molecule();
+	Atom* a = new Atom();
+	Vector v1 = Vector(0.5f, 0.5f, -0.5f);
+	Vector v2 = Vector(-0.5f, 0.5f, -0.5f);
+	Vector v3 = Vector(0.5f, -0.5f, -0.5f);
+	Triangle* t = new Triangle(v1, v2, v3);
+	a->addTriangle(t);
+	m->addAtom(a);
+
 	player[0] = Actor();
 	sector[0] = Actor();
+	sector[0].model = *m;
 	world = new World(currentTime);
 	world->addActor(&(player[0]));
 	world->addActor(&(sector[0]));
 	//SDL_Delay(1000);
+	parseToWorld(*world);
 
 	if(swEnv->isInitialized())
 	{
