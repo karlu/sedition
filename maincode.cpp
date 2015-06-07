@@ -21,7 +21,7 @@ int main(int argc, char* args[])
 
 	player[0] = Actor();
 	sector[0] = Actor();
-	sector[0].model = *m;
+	player[0].model = *m;
 	world = new World(currentTime);
 	world->addActor(&(player[0]));
 	world->addActor(&(sector[0]));
