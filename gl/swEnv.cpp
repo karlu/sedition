@@ -38,6 +38,9 @@ namespace SpaceWitch
 
 		glColor3f(1.0f, 1.0f, 1.0f);
 
+		for (int i = 0; i < W->nActors(); ++i)
+			drawMolecule(W->getActor(i)->model);
+
 		publishDrawing(gWindow);
 	}
 
