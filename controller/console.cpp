@@ -1,8 +1,10 @@
 #include "console.h"
 
+using namespace std;
+
 namespace SpaceWitch
 {
-	Console::Console(): maxMsgs(5){}
+	Console::Console(): maxMsg(5){}
 
 	void Console::logMsg(string msg)
 	{
@@ -11,9 +13,9 @@ namespace SpaceWitch
 		msgs.push(msg);
 	}
 
-	queue Console::getLogs()
+	queue<string> Console::getLogs()
 	{
-		return msgs
+		return msgs;
 	}
 
 }

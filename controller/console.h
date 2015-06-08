@@ -4,20 +4,18 @@
 #include <string>
 #include <queue>
 
-using namespace std;
-
 namespace SpaceWitch
 {
 	class Console
 	{
 	public:
 		Console();
-		void logMsg(string);
-		queue<string> getLogs();
+		void logMsg(std::string);
+		std::queue<std::string> getLogs();
 
 	private:
 		int maxMsg;
-		queue<string> msgs;
+		std::queue<std::string> msgs;
 	};
 
 }

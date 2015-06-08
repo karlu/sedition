@@ -28,7 +28,8 @@ math_test: mathTest.cpp build_dirs all_math
 	cd build && $(CC) $< $(SED_MATH_LIBS) $(CFLAGS) -o bin/$@
 	./build/bin/$@
 
-sedition: maincode.cpp $(SED_GL_LIBS) $(SED_MATH_LIBS) $(SED_MODEL_LIBS)
+sedition: maincode.cpp $(SED_GL_LIBS) $(SED_MATH_LIBS) $(SED_MODEL_LIBS) \
+					   $(SED_CON_LIBS)
 	cp maincode.cpp build/maincode.cpp
 	cp maincode.h build/maincode.h
 	cd build && $(CC) -o bin/$@ $^ $(CFLAGS_GL) $(LDFLAGS)
