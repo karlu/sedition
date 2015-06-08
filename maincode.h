@@ -2,6 +2,7 @@
 #define MAINCODE_H
 
 #include "swmath.h"
+#include "swcon.h"
 #include "swmodel.h"
 #include "swgl.h"
 

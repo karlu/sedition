@@ -4,6 +4,8 @@
 #include <string>
 #include <queue>
 
+using namespace std;
+
 namespace SpaceWitch
 {
 	class Console
@@ -15,8 +17,8 @@ namespace SpaceWitch
 
 	private:
 		int maxMsg;
-		queue<string> msgs
-	}
+		queue<string> msgs;
+	};
 
 }
 
